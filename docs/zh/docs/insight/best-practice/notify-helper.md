@@ -47,7 +47,7 @@
 
     在当前作用域下渲染指定对象。
 
-    示例 1：取顶级作用域下的所有内容，即示例代码中上下文数据的全部内容。
+    示例 1: 取顶级作用域下的所有内容，即示例代码中上下文数据的全部内容。
 
     ```go
     {{ . }}
@@ -65,7 +65,7 @@
 
     for 函数用于重复执行代码内容。
 
-    示例 1：遍历 labels 列表，获取告警的所有 label 内容。
+    示例 1: 遍历 labels 列表，获取告警的所有 label 内容。
 
     ```go
     {{ for .Labels}} \n {{end}}
@@ -126,7 +126,7 @@ func toClusterId(name string) (string, error)
 func toDateInZone(fmt string, date interface{}, zone string) string
 ```
 
-**示例 1**：
+**示例 1**: 
 
 ```go-templates
 {{ toDateInZone "2006-01-02T15:04:05" "2022-08-15T05:59:08.064449533Z" "Asia/Shanghai" }}
@@ -138,7 +138,7 @@ func toDateInZone(fmt string, date interface{}, zone string) string
 {{ dateInZone "2006-01-02T15:04:05" (toDate "2006-01-02T15:04:05Z07:00" .StartsAt) "Asia/Shanghai" }}
 ```
 
-**示例 2**：
+**示例 2**: 
 
 ```go-templates
 {{ toDateInZone "2006-01-02T15:04:05" .StartsAt "Asia/Shanghai" }}
@@ -166,13 +166,13 @@ Insight 内置 Webhook 告警模板如下，其他如邮件、企业微信等内
 ### 邮箱主题参数
 
 由于 Insight 在发送告警消息时，会对同一时间同一条规则产生的消息进行合并发送，
-所以 email 主题不同于上面四种模板，只会使用告警消息中的 commonLabels 内容对模板进行渲染。默认模板如下：
+所以 email 主题不同于上面四种模板，只会使用告警消息中的 commonLabels 内容对模板进行渲染。默认模板如下: 
 
 ```go
 [{{ .status }}] [{{ .severity }}] 告警：{{ .alertname }}
 ```
 
-其他可作为邮箱主题的字段如下：
+其他可作为邮箱主题的字段如下:
 
 ```text
 {{ .status }} 告警消息的触发状态
